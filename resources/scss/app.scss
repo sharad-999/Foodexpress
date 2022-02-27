@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    .navbar{
+        background-color: rgb(0, 0, 0)!important;
+        overflow: hidden;
+        position:fixed;
+        top: 0;
+        width :100%;
+        height: 75px;
+    }
+    .navbar-brand{
+        height: auto;
+        width: 50%;
+        margin-left: -62px;
+    }
+    .nav-item{
+        padding: 15px;
+    }
+    .nav-link{
+        color: rgb(250, 250, 250)!important;
+        font-weight: 600!important;
+    }
+    .nav-link:hover{
+        color: rgb(0, 180, 0)!important  ;
+    }   
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body .navbar {
+    background-color: black !important;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+body .navbar-brand {
+    height: auto;
+    width: 50%;
+}
+
+body .nav-item {
+    padding: 15px;
+}
+
+body .nav-link {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+body .nav-link:hover {
+    color: green !important;
+}
+
+.our_story {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.d1 {
+    width: 50vw;
+    padding: 20px;
+    margin: 10px;
+    margin-left: 50px;
+    /* border-right: 2px solid gray; */
+}
+
+.d2 {
+    width: max-content;
+    z-index: -1;
+    display: block;
+    /* margin-left: auto; */
+}
+
+.d2 img {
+    width: 30vw;
+    height: 20vw;
+    display: block;
+    margin-left: 25%;
+    filter: hue-rotate(180deg) saturate(2);
+    /* opacity: .8; */
+    box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, .2);
+}
+
+.opening_hours {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.left_side {
+    width: 50%;
+    z-index: -1;
+    display: block;
+}
+
+.left_side img {
+    width: 35vw;
+    height: 25vw;
+    margin-left: 20%;
+    display: block;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, .2);
+}
+
+.right_side {
+    width: 50%;
+    padding: 20px;
+    float: right;
+    align-items: center;
+}
+
+.right_side h4 {
+    text-align: center;
+    width: fit-content;
+    margin-left: 22%;
+}
+
+.table {
+    width: fit-content;
+    list-style-type: none;
+    /* float: right; */
+    margin-left: 12%;
+    /* align-items: center; */
+}
+
+.table li {
+    margin: 30px;
+    padding: 10px;
+    width: 30vw;
+    /* justify-content: space-between; */
+}
+
+.table li span {
+    float: left;
+    display: inline;
+}
+
+.pull-right {
+    float: right;
+    display: inline;
+    width: fit-content;
+}
+.container_ {
+    width: 100%;
+    /* border: 2px solid red; */
+    /* background: url(/Rms/Rms/public/img/white-gold-geometric-pattern-background-vector_53876-140726.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    /* color: white; */
+}
+
+.best_dishes {
+    display: flex;
+    padding: 30px;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.one,
+.two,
+.three {
+    justify-content: center;
+    /* width: min-content; */
+    margin: 25px;
+    padding: 15px;
+    /* border: 2px solid rgb(172, 170, 170); */
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.05);
+    width: 45%;
+    /* border-right: 1px solid black; */
+    /* background-color: transparent;*9* */
+}
+
+.one img,
+.two img,
+.three img {
+    width: 20vw;
+    height: 20vw;
+    padding: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    background-color: transparent;
+}
+
+.one img:hover,
+.two img:hover,
+.three img:hover {
+    transform: scale(1.1);
+    transition: all 500ms ease;
+}
+
+.data {
+    padding: 5px;
+    margin: 10px;
+    width: fit-content;
+}
+
+.data p {
+    text-align: center;
+}
+
+.data button {
+    background-color: rgb(243, 171, 147);
+    color: red;
+    padding: 5px;
+}
+.footer {
+    background-color: black;
+    color: white;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+}
+
+.this {
+    margin-top: -15px;
+}
+
+.first img {
+    width: 15vw;
+    height: 5vw;
+    margin-left: -20px;
+    margin-bottom: 10px;
+}
+
+.second h4,
+.third h4 {
+    margin-bottom: 20px;
+}
+
+.first,
+.second,
+.third {
+    margin: 20px;
+    width: 33vw;
+}
+
+.footer_link p a {
+    text-decoration: none;
+    color: rgb(0, 255, 0);
+}
+.pizza{
+    cursor: pointer;
+}
+.pizza:hover{
+    transform: scale(1.1);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+.features {
+    /* width: 80%; */
+    /* background: url(/Rms/Rms/public/img/image.png); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.f1,
+.f2,
+.f3,
+.f4 {
+    align-content: center;
+    margin: 30px;
+    justify-content: center;
+    width: 20%;
+    float: right;
+    margin: 20px;
+    /* background-color: rgba(128, 128, 128, 0.1); */
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.t {
+    font-size: 20px;
+}
+.f1 .t,
+.f4 .t {
+    margin-top: 13px;
+}
