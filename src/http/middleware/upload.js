@@ -21,11 +21,13 @@ const filefilter = (req, file, cb) => {
     {
         cb(null, true);
     } else {
+        req.flash('error','only image File allowed');
+        return 0;
         console.log('only image File allowed');
         cb(null, false);
     }
 }
 
-const upload = multer({ storage: storage, fileFilter: filefilter,limits:{fileSize:1024*1024*8}});
+const upload = multer({ storage: storage, fileFilter: filefilter,limits:{fileSize:1024*1024*3}});
 
 module.exports = upload 

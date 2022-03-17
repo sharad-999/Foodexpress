@@ -15,18 +15,6 @@ function adminController() {
                     req.flash('error', 'All fields are required')
                     return res.redirect('/Admin/signup')
                 }
-                // Admin.exists({ email: email }, (err, result) => {
-                //     if (result) {
-                //         req.flash('error', 'Email is already in use')
-                //         return res.redirect('/Admin/signup')
-                //     }
-                // })
-                // Admin.find({ email: { $in: Admin } })
-                //     .then(
-                //         res.redirect('/Admin/signup')
-                //     }).catch(error => {
-                //     console.log(error);
-                // })
                 if(Admin.findOne(email)||Customer.findOne(email)){
                     try{
                     req.flash('error', 'Email is already in use')
@@ -63,7 +51,7 @@ function adminController() {
                     req.flash('error', 'something went wrong')
                     return res.redirect('/Admin/signup')
                 })         
-            }
-        }
+            },
     }
+}
     module.exports=adminController

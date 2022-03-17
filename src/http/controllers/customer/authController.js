@@ -4,8 +4,14 @@ const Admin = require('../../../models/Admin')
 const passport = require('passport')
 function authController() {
     return {
+        chef(req,res){
+            res.render('cdashboard')
+        },
+        admin(req,res){
+            res.render('adashboard')
+        },
         login(req, res) {
-            res.render('auth/login')
+            res.render('auth/Login')
         },
         postlogin(req,res,next){
             passport.authenticate('local',(err,user,info)=>{
@@ -22,7 +28,15 @@ function authController() {
                         req.flash('error', info.message)
                         return next(err)
                     }
-                    return res.redirect('/')
+                    if(user.role=="admin"){
+                    return res.redirect('/Admin/dashboard')
+                    }
+                    else if(user.role=="chef"){
+                        return res.redirect('/chef/dashboard')
+                    }
+                    else{
+                        return res.redirect('/')
+                    }
                 }) 
             })(req,res,next)
         },
@@ -42,13 +56,9 @@ function authController() {
             //         return res.redirect('/signup')
             //     }
             // })
-            if (Admin.findOne(email) || Customer.findOne(email)) {
-                try {
-                    req.flash('error', 'Email is already in use')
-                    return res.redirect('/signup')
-                } catch (error) {
-                    console.log(error);
-                }
+            if (await Customer.findOne({email:email})) {
+                req.flash('error', 'Email is already in use')
+                return res.redirect('/signup')
             }
             if(password.length<8){
                 req.flash('error', 'Password is too small')
@@ -59,14 +69,14 @@ function authController() {
                 return res.redirect('/signup')
             }
             const hashpassword=await bcrypt.hash(password,10)
-            const customer = new Customer({
+            const user = new Customer({
                 name:name,
                 email:email,
                 password:hashpassword
             })
-            customer.save().then((user)=>{
+            user.save().then((user)=>{
                 //login
-                console.log(customer);
+                console.log(user);
                 return res.redirect('/login')
             }).catch(err=>{
                 console.log(err);

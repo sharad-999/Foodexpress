@@ -2,7 +2,7 @@ const authController = require('../src/http/controllers/customer/authController'
 const homeController=require('../src/http/controllers/homeController')
 const cartController=require('../src/http/controllers/customer/cartController')
 const adminController=require('../src/http/controllers/Acontroller')
-const guest=require('../src/http/middleware/guest')
+const {guest,admin,chef}=require('../src/http/middleware/guest')
 const upload=require('../src/http/middleware/upload')
 const multer=require('multer')
 const path = require('path')
@@ -18,8 +18,11 @@ function initroutes(app){
 
     app.get('/logout',authController().logout)
 
-    app.get('/Admin/signup',adminController().adminsignup)
-    app.post('/Admin/signup',upload.single('file'),adminController().postadminsignup)
+    // app.get('/Admin/signup',adminController().adminsignup)
+    // app.post('/Admin/signup',upload.single('file'),adminController().postadminsignup)
+    app.get('/Admin/dashboard',admin,authController().admin)
+    app.get('/chef/dashboard',chef,authController().chef)
+
 
     app.get('/cart',cartController().index)
 

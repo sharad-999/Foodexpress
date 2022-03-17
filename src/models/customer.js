@@ -23,6 +23,11 @@ const customerSchema = new mongoose.Schema({
     //     // max:10,
     //     unique: true
     // },
+
+    image:{
+        type:String,
+        default:"public/uploads/1646471268437.jpg",
+    },
     password:{
         type:String,
         required:true,

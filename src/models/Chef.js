@@ -11,30 +11,20 @@ const ChefSchema =new mongoose.Schema({
     email:{
         type:String,
         required:true,
-        unique:[true,"This email is already in use."],
-        validate(value){
-            if(validator.isEmail(value)){
-                 throw new Error("Invalid Email")
-            }
-        }
+        unique:true
     }, 
-    // phone:{
-    //     type:Number,
-    //     min:10,
-    //     // max:10,
-    //     requaired:true,
-    //     unique:true
-    // },
     password: {
         type: String,
         required: true,
         minlength: 8,
-    }, 
-    // photo: {
-    //     type: Image,
-    //     required: true,
-    //     unique: true
-    // }
+    },role: {
+        type: String,
+        default: 'chef'
+    },
+    image: {
+        type: String,
+        default: "public/uploads/1646471268437.jpg",
+    }
 }, { timestamps: true })
 
 const Chef =new mongoose.model('Chef',ChefSchema);
