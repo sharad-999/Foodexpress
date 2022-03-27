@@ -26,7 +26,7 @@ const customerSchema = new mongoose.Schema({
 
     image:{
         type:String,
-        default:"public/uploads/1646471268437.jpg",
+        default:"public/uploads/file-1648374317914.jpg",
     },
     password:{
         type:String,

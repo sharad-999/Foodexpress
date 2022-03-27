@@ -3,6 +3,9 @@ const bcrypt=require('bcrypt')
 const Admin = require('../../../models/Admin')
 const passport = require('passport')
 function authController() {
+    const _get = (req) => {
+        return req.user.role==='admin'?'/Admin/dashboard':'chef/dashboard'
+    }
     return {
         chef(req,res){
             res.render('cdashboard')
@@ -28,6 +31,7 @@ function authController() {
                         req.flash('error', info.message)
                         return next(err)
                     }
+                    // return res.redirect(_get)
                     if(user.role=="admin"){
                     return res.redirect('/Admin/dashboard')
                     }

@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         // let ext = path.extname(file.originalname)
         let ext = path.extname(file.originalname)
-        cb(null,Date.now()+ext)
+        cb(null, file.fieldname + '-' + Date.now()+ext)
     }
 });
 const filefilter = (req, file, cb) => {
@@ -23,8 +23,6 @@ const filefilter = (req, file, cb) => {
     } else {
         req.flash('error','only image File allowed');
         return 0;
-        console.log('only image File allowed');
-        cb(null, false);
     }
 }
 
