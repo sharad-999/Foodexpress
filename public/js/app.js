@@ -2476,7 +2476,7 @@ function initAdmin(socket) {
 
   function generateMarkup(orders) {
     return orders.map(function (order) {
-      return "\n                <tr>\n                <td class=\"border px-4 py-2 text-green-900\">\n                    <p>".concat(order._id, "</p>\n                    <div>").concat(renderItems(order.items), "</div>\n                </td>\n                <td class=\"border px-4 py-2\">").concat(order.customerId.name, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(order.paymentStatus ? 'paid' : 'Not paid', "\n                </td>\n            </tr>\n        ");
+      return "\n                <tr>\n                <td class=\"border px-4 py-2 text-green-900\">\n                    <p>".concat(order._id, "</p>\n                    <div>").concat(renderItems(order.items), "</div>\n                </td>\n                <td class=\"border px-4 py-2\">").concat(order.customerId.name, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.table, "</td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(order.paymentStatus ? 'paid' : 'Not paid', "\n                </td>\n            </tr>\n        ");
     }).join('');
   } // Socket
 
@@ -2558,98 +2558,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//  import axios from 'axios'
-//  import Noty from 'noty'
-//  import { initAdmin } from './admin'
-//  import moment from 'moment'
-//  import { initStripe } from './stripe'
-// let addToCart = document.querySelectorAll('.add-to-cart')
-// let cartCounter = document.querySelector('#cartCounter')
-// function updateCart(item) {
-//     axios.post('/cart', item).then(res => {
-//         cartCounter.innerText = res.data.totalQty
-//         new Noty({
-//             type: 'success',
-//             timeout: 1000,
-//             text: 'Item added to cart',
-//             progressBar: false,
-//         }).show();
-//     }).catch(err => {
-//         new Noty({
-//             type: 'error',
-//             timeout: 1000,
-//             text: 'Something went wrong',
-//             progressBar: false,
-//         }).show();
-//         console.log(err);
-//     })
-// }
-// addToCart.forEach((btn) => {
-//     btn.addEventListener('click', (e) => {
-//         let item = JSON.parse(btn.dataset.item)
-//         console.log(item);
-//         updateCart(item)
-//     })
-// })
-// // Remove alert message after X seconds
-// const alertMsg = document.querySelector('#success-alert')
-// if(alertMsg) {
-//     setTimeout(() => {
-//         alertMsg.remove()
-//     }, 2000)
-// }
-// // Change order status
-// let statuses = document.querySelectorAll('.status_line')
-// let hiddenInput = document.querySelector('#hiddenInput')
-// let order = hiddenInput ? hiddenInput.value : null
-// order = JSON.parse(order)
-// let time = document.createElement('small')
-// function updateStatus(order) {
-//     statuses.forEach((status) => {
-//         status.classList.remove('step-completed')
-//         status.classList.remove('current')
-//     })
-//     let stepCompleted = true;
-//     statuses.forEach((status) => {
-//        let dataProp = status.dataset.status
-//        if(stepCompleted) {
-//             status.classList.add('step-completed')
-//        }
-//        if(dataProp === order.status) {
-//             stepCompleted = false
-//             time.innerText = moment(order.updatedAt).format('hh:mm A')
-//             status.appendChild(time)
-//            if(status.nextElementSibling) {
-//             status.nextElementSibling.classList.add('current')
-//            }
-//        }
-//     })
-// }
-// updateStatus(order);
-// initStripe()
-// // Socket
-// let socket = io()
-// // Join
-// if(order) {
-//     socket.emit('join', `order_${order._id}`)
-// }
-// let adminAreaPath = window.location.pathname
-// if(adminAreaPath.includes('admin')) {
-//     initAdmin(socket)
-//     socket.emit('join', 'adminRoom')
-// }
-// socket.on('orderUpdated', (data) => {
-//     const updatedOrder = { ...order }
-//     updatedOrder.updatedAt = moment().format()
-//     updatedOrder.status = data.status
-//     updateStatus(updatedOrder)
-//     new Noty({
-//         type: 'success',
-//         timeout: 1000,
-//         text: 'Order updated',
-//         progressBar: false,
-//     }).show();
-// })
 
 
 
@@ -2801,47 +2709,51 @@ function initStripe() {
 
 function _initStripe() {
   _initStripe = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-    var stripe, card, paymentType, paymentForm;
+    var stripe, card, mountWidget, paymentType, paymentForm;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.next = 2;
+            mountWidget = function _mountWidget() {
+              var elements = stripe.elements();
+              var style = {
+                base: {
+                  color: '#32325d',
+                  fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                  fontSmoothing: 'antialiased',
+                  fontSize: '16px',
+                  '::placeholder': {
+                    color: '#aab7c4'
+                  }
+                },
+                invalid: {
+                  color: '#fa755a',
+                  iconColor: '#fa755a'
+                }
+              };
+              card = elements.create('card', {
+                style: style,
+                hidePostalCode: true
+              });
+              card.mount('#card-element');
+            };
+
+            _context2.next = 3;
             return (0,_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_1__.loadStripe)('pk_test_51KjGewSGKj6aTHGNM9xcoTbq4mdUfpWO00B86w5lMPEI2mgiBzqMNadeXvOqKYIlvVqO8dqk8yzEGnizSaEM9H4D00IhnJBegY');
 
-          case 2:
+          case 3:
             stripe = _context2.sent;
-            card = null; // function mountWidget() {
-            //         const elements = stripe.elements()
-            //     let style = {
-            //         base: {
-            //         color: '#32325d',
-            //         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-            //         fontSmoothing: 'antialiased',
-            //         fontSize: '16px',
-            //         '::placeholder': {
-            //             color: '#aab7c4'
-            //         }
-            //         },
-            //         invalid: {
-            //         color: '#fa755a',
-            //         iconColor: '#fa755a'
-            //         }
-            //     };
-            //     card = elements.create('card', { style, hidePostalCode: true })
-            //     card.mount('#card-element')
-            // }
-
+            card = null;
             paymentType = document.querySelector('#paymentType');
 
             if (paymentType) {
-              _context2.next = 7;
+              _context2.next = 8;
               break;
             }
 
             return _context2.abrupt("return");
 
-          case 7:
+          case 8:
             paymentType.addEventListener('change', function (e) {
               if (e.target.value === 'card') {
                 // Display Widget
@@ -2896,15 +2808,16 @@ function _initStripe() {
                         case 11:
                           token = _context.sent;
                           formObject.stripeToken = token.id;
-                          (0,_apiService__WEBPACK_IMPORTED_MODULE_2__.placeOrder)(formObject); // // Verify card
-                          // stripe.createToken(card).then((result) => {
-                          //     formObject.stripeToken = result.token.id;
-                          //     placeOrder(formObject);
-                          // }).catch((err) => {
-                          //     console.log(err)
-                          // })
+                          (0,_apiService__WEBPACK_IMPORTED_MODULE_2__.placeOrder)(formObject); // Verify card
 
-                        case 14:
+                          stripe.createToken(card).then(function (result) {
+                            formObject.stripeToken = result.token.id;
+                            (0,_apiService__WEBPACK_IMPORTED_MODULE_2__.placeOrder)(formObject);
+                          })["catch"](function (err) {
+                            console.log(err);
+                          });
+
+                        case 15:
                         case "end":
                           return _context.stop();
                       }
@@ -2918,7 +2831,7 @@ function _initStripe() {
               }());
             }
 
-          case 10:
+          case 11:
           case "end":
             return _context2.stop();
         }

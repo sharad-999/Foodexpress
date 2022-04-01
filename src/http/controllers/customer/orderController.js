@@ -5,8 +5,8 @@ function orderController () {
     return {
         store(req, res) {
             // Validate request
-            const { phone, address, stripeToken, paymentType } = req.body
-            if(!phone || !address) {
+            const { phone, table, stripeToken, paymentType } = req.body
+            if(!phone || !table) {
                 return res.status(422).json({ message : 'All fields are required' });
             }
 
@@ -14,7 +14,7 @@ function orderController () {
                 customerId: req.user._id,
                 items: req.session.cart.items,
                 phone,
-                address
+                table
             })
             order.save().then(result => {
                 Order.populate(result, { path: 'customerId' }, (err, placedOrder) => {
@@ -26,7 +26,7 @@ function orderController () {
                             amount: req.session.cart.totalPrice  * 100,
                             source: stripeToken,
                             currency: 'inr',
-                            description: `Pizza order: ${placedOrder._id}`
+                            description: `Item order: ${placedOrder._id}`
                         }).then(() => {
                             placedOrder.paymentStatus = true
                             placedOrder.paymentType = paymentType
@@ -46,12 +46,12 @@ function orderController () {
                         })
                     } else {
                         delete req.session.cart
-                        return res.json({ message : 'Order placed succesfully' });
+                        return res.json({ message : 'Order placed succesfully.' });
                     }
                 })
             }).catch(err => {
                 console.log(err);
-                return res.status(500).json({ message : 'Something went wrong' });
+                return res.status(500).json({ message : '!Something went wrong.' });
             })
         },
         async index(req, res) {

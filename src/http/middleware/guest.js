@@ -22,5 +22,11 @@ function auth(req, res, next) {
     }
     return res.redirect('/login')
 }
+function menu(req, res, next) {
+    if (req.isAuthenticated() && (req.user.role === 'admin' || req.user.role === 'chef')) {
+        return res.redirect('/')
+    }
+    return next()
+}
 
-module.exports={guest,admin,chef,auth}
+module.exports={guest,admin,chef,auth,menu}

@@ -17,7 +17,7 @@
                 <tr>
                     <th class="px-4 py-2 text-left">Orders</th>
                     <th class="px-4 py-2 text-left">Phone</th>
-                    <th class="px-4 py-2 text-left">Address</th>
+                    <th class="px-4 py-2 text-left">Table No.</th>
                     <th class="px-4 py-2 text-left">Time</th>
                 </tr>
             </thead>
@@ -32,7 +32,7 @@
                         <%= order.phone %>
                     </td>
                     <td class="border px-4 py-2">
-                        <%= order.address %>
+                        <%= order.table %>
                     </td>
                     <td class="border px-4 py-2">
                         <%= moment(order.createdAt).format('hh:mm A') %>

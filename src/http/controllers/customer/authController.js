@@ -4,7 +4,7 @@ const Admin = require('../../../models/Admin')
 const passport = require('passport')
 function authController() {
     const _get = (req) => {
-        return req.user.role==='admin'?'/Admin/dashboard':'chef/dashboard'
+        return req.user.role==='admin'?'/admin/orders':'chef/orders'
     }
     return {
         chef(req,res){
@@ -31,12 +31,12 @@ function authController() {
                         req.flash('error', info.message)
                         return next(err)
                     }
-                    // return res.redirect(_get)
+                    // return res.redirect(_get())
                     if(user.role=="admin"){
-                    return res.redirect('/Admin/dashboard')
+                    return res.redirect('/admin/orders')
                     }
                     else if(user.role=="chef"){
-                        return res.redirect('/chef/dashboard')
+                        return res.redirect('/chef/orders')
                     }
                     else{
                         return res.redirect('/')
@@ -90,7 +90,7 @@ function authController() {
         },
         logout(req,res){
             req.logout()
-            return res.redirect('/login')
+            req.session.destroy((err) => res.redirect('/'));
         },
     }
 }
