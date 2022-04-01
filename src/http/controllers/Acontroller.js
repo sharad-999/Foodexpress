@@ -58,9 +58,9 @@ function adminController() {
             res.render('admin/additem')
         },
         additem(req, res) {
-            const { name, catagory, price, description,file} = req.body
+            const { name, catagory, price, description} = req.body
             console.log(req.body);
-            if (!name || !catagory || !price || !description||!file) {
+            if (!name || !catagory || !price || !description||!req.file) {
                 req.flash('error', 'All fields are required')
                 return res.redirect('/Admin/additem')
             }

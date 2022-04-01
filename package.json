@@ -16,6 +16,8 @@
   "author": "SHARAD",
   "license": "ISC",
   "dependencies": {
+    "@stripe/stripe-js": "^1.25.0",
+    "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
     "dotenv": "^14.3.2",
@@ -24,11 +26,15 @@
     "express-ejs-layouts": "^2.5.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
-    "mongo-connect": "^0.0.6",
+    "moment": "^2.29.1",
     "mongoose": "^6.1.6",
     "multer": "^1.4.4",
+    "noty": "^3.2.0-beta-deprecated",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
+    "socket.io": "^4.4.1",
+    "stripe": "^8.212.0",
+    "tailwindcss": "^3.0.23",
     "validator": "^13.7.0"
   },
   "devDependencies": {
