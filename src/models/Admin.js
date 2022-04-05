@@ -33,6 +33,7 @@ const AdminSchema = new mongoose.Schema({
     },
     image:{
     type:String,
+    default: 'file-1648374317914.jpg'
     }
 }, { timestamps: true})
 

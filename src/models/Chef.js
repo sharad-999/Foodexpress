@@ -23,7 +23,7 @@ const ChefSchema =new mongoose.Schema({
     },
     image: {
         type: String,
-        default: "public/uploads/1646471268437.jpg",
+        default: "file-1648374317914.jpg",
     }
 }, { timestamps: true })
 

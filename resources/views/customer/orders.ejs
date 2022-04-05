@@ -1,7 +1,31 @@
+<style>
+    *{
+        text-align: center;
+    }
+    #sec{
+        margin-top: 100px;
+    }
+    table{
+        margin-left: 135px;
+    }
+    #id1{
+        width: 20vw;
+    }
+    #id2{
+        width: 15vw;
+    }
+    #id3{
+        width: 15vw;
+    }
+    #id4{
+        width: 15vw;
+    }
+</style>
+
 <body>
-<section class="orders light-section">
-    <div class="container mx-auto pt-12">
-        <h1 class="font-bold text-lg mb-4">All orders</h1>
+<section class="orders light-section" id="sec">
+    <div class="container mx-auto pt-12" id="sec">
+        <h1 class="font-bold text-lg mb-4" id="sec">All orders</h1>
         <% if(messages.success) { %>
         <div id="success-alert" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3"
             role="alert">
@@ -25,16 +49,21 @@
                 <% if(orders.length) { %>
                 <% orders.forEach((order) => { %>
                 <tr>
-                    <td class="border px-4 py-2">
+                    <td class="border px-4 py-2" id="id1">
+                        <%if(order.status!='completed'){%>
                         <a class="link" href="/customer/orders/<%= order._id %>"><%= order._id %></a>
+                        <%}else{%>
+                            <strike style="color: red;">
+                               <p style="color: black;"><%= order._id %></p></strike>
                     </td>
-                    <td class="border px-4 py-2">
+                    <%}%>
+                    <td class="border px-4 py-2" id="id2">
                         <%= order.phone %>
                     </td>
-                    <td class="border px-4 py-2">
+                    <td class="border px-4 py-2" id="id3">
                         <%= order.table %>
                     </td>
-                    <td class="border px-4 py-2">
+                    <td class="border px-4 py-2" id="id4">
                         <%= moment(order.createdAt).format('hh:mm A') %>
                     </td>
                 </tr>

@@ -1,59 +1,362 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    .container h4 {
+        /* text-align: center; */
+        width: fit-content;
+        margin-left: 600px;
+        /* border-bottom: 2px solid green; */
+    }
 
-    <title>Menu</title>
-</head>
+    .image-icon {
+        margin-top: 50px;
+    }
+
+    .image-icon img {
+        margin: 80px;
+        margin-top: -15px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .item-list span {
+        text-align: center;
+    }
+
+    .Categories {
+        margin-top: 100px;
+        width: fit-content;
+        display: flex;
+    }
+
+    .Categories a {
+        text-decoration: none;
+        color: black;
+        font-weight: bolder;
+    }
+
+    .Categories a:hover {
+        color: #55d686;
+    }
+
+    .left-side {
+        border-right: 2px solid rgb(220, 219, 219);
+        width: 17vw;
+        height: 100vh;
+        position: fixed;
+    }
+
+    .cate {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .box2 {
+        width: fit-content;
+        display: flex;
+        margin-left: 300px;
+    }
+
+    .box2 .image img {
+        width: 10vw;
+        height: 20vh;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+
+    .title {
+        width: 30vw;
+        width: 15hw;
+        margin-left: 15px;
+        font-size: 19px;
+    }
+
+    .data {
+        width: 20vw;
+    }
+
+    .data p {
+        text-align: left;
+    }
+
+    .pab {
+        display: flex;
+    }
+
+    .pab .price {
+        margin-left: 15px;
+    }
+
+    .pab .b {
+        margin-left: 15px;
+    }
+
+    .data .description {
+        width: 30vw;
+        margin-left: 15px;
+    }
+
+    .data button {
+        margin-left: 15px;
+    }
+
+    .b {
+        background-color: #55d686;
+        color: #fbfafa;
+        border-radius: 10px;
+        width: 3vw;
+        text-align: center;
+        height: 35px;
+    }
+
+    .offer {
+        width: fit-content;
+        position: fixed;
+        transform: translate(360%, -2%);
+    }
+
+    .i1 {
+        width: 300px;
+        height: 300px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .i2 {
+        width: 300px;
+        height: 300px;
+        display: block;
+    }
+</style>
 
 <body>
-    <% items.forEach(function(item){%>
-        <div class="card" style="width: 18rem;">
-            <img src="../<%=item.image%>" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><%=item.name%></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
-                    <p>price :<%=item.price%></p>
-               <button  data-item="<%=JSON.stringify(item)%>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-            <span>+</span>
-            <span class="ml-4">Add</span></button>
+    <div class="Categories">
+        <div class="left-side">
+            <div class="image-icon">
+                <img
+                    src="https://img.icons8.com/external-konkapp-outline-color-konkapp/64/000000/external-menu-cafe-konkapp-outline-color-konkapp.png" />
+            </div>
+            <div class="item-list">
+                <span class="cate" style="margin-top: -50px;">
+                    <h5><b>Categories</b></h5>
+                </span>
+                <span class="cate">
+                    <h6><a href="#id1">Quick</a></h6>
+                </span>
+                <span class="cate">
+                    <h6><a href="#id2">Italian</a></h6>
+                </span>
+                <span class="cate">
+                    <h6><a href="#id3">Punjabi</a></h6>
+                </span>
+                <span class="cate">
+                    <h6><a href="#id4">Spanish</a></h6>
+                </span>
+                <span class="cate">
+                    <h6><a href="#id5">Chinese</a></h6>
+                </span>
+                <span class="cate">
+                    <h6><a href="#id6">Dessert</a></h6>
+                </span>
             </div>
         </div>
-    <%})
-    %>
-    <!-- <section class="menu container mx-auto py-8">
-        <h1 class="text-xl font-bold mb-8">All Pizzas</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16">
-            <% items.forEach(function(item) { %>
-                <div class="w-full md:w-64">
-                    <img class="h-40 mb-4 mx-auto" src="/img/<%= item.image %>" alt="">
-                    <div class="text-center">
-                        <h2 class="mb-4 text-lg">
-                            <%= item.name %>
-                        </h2>
-                        <div class="flex items-center justify-around mt-6">
-                            <span class="font-bold text-lg">₹<%= item.price %></span>
-                            <button data-content="<%= JSON.stringify(item) %>"
-                                class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                                <span>+</span>
-                                <span class="ml-4">Add</span>
-                            </button>
+        <div class="container">
+            <h4 id="id1">Quick</h4>
+            <% items.forEach(function(item){if(item.catagory!='special' && item.catagory=='Quick' ){%>
+                <div class="box2">
+                    <div class="image">
+                        <img src="/uploads/<%=item.image%>" alt="">
+                    </div>
+                    <div class="data">
+                        <p class="title">
+                            <b>
+                                <%=item.name%>
+                            </b>
+                        </p>
+                        <div class="description">
+                            <%=item.description%>
                         </div>
+                        <div class="pab">
+                            <p class="price">
+                            <h6 style="font-size: 18px;">Rs. <%=item.price%>
+                            </h6>
+                            </p>
+                        </div>
+                        <button data-item="<%=JSON.stringify(item)%>"
+                            class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                            <span>+</span>
+                            <span class="ml-4">Add</span>
+                        </button>
                     </div>
                 </div>
-                <% }) %> -->
-    
+                <hr style="width: 680px; margin-left: 310px;">
+                <%}})%>
+
+                    <h4 id="id2">Italian</h4>
+                    <% items.forEach(function(item){if(item.catagory!='special' && item.catagory=='Italian' ){%>
+                        <div class="box2">
+                            <div class="image">
+                                <img src="/uploads/<%=item.image%>" alt="">
+                            </div>
+                            <div class="data">
+                                <p class="title">
+                                    <b>
+                                        <%=item.name%>
+                                    </b>
+                                </p>
+                                <div class="description">
+                                    <%=item.description%>
+                                </div>
+                                <div class="pab">
+                                    <p class="price">
+                                    <h6 style="font-size: 18px;">Rs. <%=item.price%>
+                                    </h6>
+                                    </p>
+                                </div>
+                                <button data-item="<%=JSON.stringify(item)%>"
+                                    class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                    <span>+</span>
+                                    <span class="ml-4">Add</span>
+                                </button>
+                            </div>
+                        </div>
+                        <hr style="width: 680px; margin-left: 310px;">
+                        <%}})%>
+                            <h4 id="id3">Punjabi</h4>
+                            <% items.forEach(function(item){if(item.catagory!='special' && item.catagory=='Punjabi' ){%>
+                                <div class="box2">
+                                    <div class="image">
+                                        <img src="/uploads/<%=item.image%>" alt="">
+                                    </div>
+                                    <div class="data">
+                                        <p class="title">
+                                            <b>
+                                                <%=item.name%>
+                                            </b>
+                                        </p>
+                                        <div class="description">
+                                            <%=item.description%>
+                                        </div>
+                                        <div class="pab">
+                                            <p class="price">
+                                            <h6 style="font-size: 18px;">Rs. <%=item.price%>
+                                            </h6>
+                                            </p>
+                                        </div>
+                                        <button data-item="<%=JSON.stringify(item)%>"
+                                            class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                            <span>+</span>
+                                            <span class="ml-4">Add</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr style="width: 680px; margin-left: 310px;">
+                                <%}})%>
+                                    <h4 id="id4">Spanish</h4>
+                                    <% items.forEach(function(item){if(item.catagory!='special' &&
+                                        item.catagory=='Spanish' ){%>
+                                        <div class="box2">
+                                            <div class="image">
+                                                <img src="/uploads/<%=item.image%>" alt="">
+                                            </div>
+                                            <div class="data">
+                                                <p class="title">
+                                                    <b>
+                                                        <%=item.name%>
+                                                    </b>
+                                                </p>
+                                                <div class="description">
+                                                    <%=item.description%>
+                                                </div>
+                                                <div class="pab">
+                                                    <p class="price">
+                                                    <h6 style="font-size: 18px;">Rs. <%=item.price%>
+                                                    </h6>
+                                                    </p>
+                                                </div>
+                                                <button data-item="<%=JSON.stringify(item)%>"
+                                                    class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                                    <span>+</span>
+                                                    <span class="ml-4">Add</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <hr style="width: 680px; margin-left: 310px;">
+                                        <%}})%>
+                                            <h4 id="id5">Chinese</h4>
+                                            <% items.forEach(function(item){if(item.catagory!='special' &&
+                                                item.catagory=='Chinese' ){%>
+                                                <div class="box2">
+                                                    <div class="image">
+                                                        <img src="/uploads/<%=item.image%>" alt="">
+                                                    </div>
+                                                    <div class="data">
+                                                        <p class="title">
+                                                            <b>
+                                                                <%=item.name%>
+                                                            </b>
+                                                        </p>
+                                                        <div class="description">
+                                                            <%=item.description%>
+                                                        </div>
+                                                        <div class="pab">
+                                                            <p class="price">
+                                                            <h6 style="font-size: 18px;">Rs. <%=item.price%>
+                                                            </h6>
+                                                            </p>
+                                                        </div>
+                                                        <button data-item="<%=JSON.stringify(item)%>"
+                                                            class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                                            <span>+</span>
+                                                            <span class="ml-4">Add</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <hr style="width: 680px; margin-left: 310px;">
+                                                <%}})%>
+                                                    <h4 id="id6">Dessert</h4>
+                                                    <% items.forEach(function(item){if(item.catagory!='special' &&
+                                                        item.catagory=='Dessert' ){%>
+                                                        <div class="box2">
+                                                            <div class="image">
+                                                                <img src="/uploads/<%=item.image%>" alt="">
+                                                            </div>
+                                                            <div class="data">
+                                                                <p class="title">
+                                                                    <b>
+                                                                        <%=item.name%>
+                                                                    </b>
+                                                                </p>
+                                                                <div class="description">
+                                                                    <%=item.description%>
+                                                                </div>
+                                                                <div class="pab">
+                                                                    <p class="price">
+                                                                    <h6 style="font-size: 18px;">Rs. <%=item.price%>
+                                                                    </h6>
+                                                                    </p>
+                                                                </div>
+                                                                <button data-item="<%=JSON.stringify(item)%>"
+                                                                    class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                                                    <span>+</span>
+                                                                    <span class="ml-4">Add</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <hr style="width: 680px; margin-left: 310px;">
+                                                        <%}})%>
+
         </div>
-    </section>
+        <div class="offer">
+            <img src="/img/burger.png" alt="iubhjb               " class="i1">
+            <img src="/img/DESSERT.png" alt="bkbkjn k" class="i2">
+        </div>
+
+    </div>
+    <!-- <hr> -->
+
 </body>
-
-</html>
-
-

@@ -71,7 +71,7 @@ function adminController() {
                 description:description
             })
             if (req.file) {
-                newdish.image = req.file.path
+                newdish.image = req.file.filename
             }
             console.log(newdish);
             newdish.save().then(() => {
@@ -108,7 +108,7 @@ function adminController() {
                 role:r
             })
             if (req.file) {
-                newchef.image = req.file.path
+                newchef.image = req.file.filename
             }
             console.log(newchef);
             newchef.save().then(() => {

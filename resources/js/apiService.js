@@ -5,18 +5,18 @@ export function placeOrder(formObject) {
     axios.post('/orders', formObject).then((res) => {
         new Noty({
             type: 'success',
-            timeout: 1000,
+            timeout: 3000,
             text: res.data.message,
             progressBar: false,
         }).show();
         setTimeout(() => {
             window.location.href = '/customer/orders';
-        }, 1000);
+        }, 3000);
     }).catch((err)=> {
         new Noty({
             type: 'success',
-            timeout: 1000,
-            text: err.res.data.message,
+            timeout: 3000,
+            text: err.res,
             progressBar: false,
         }).show();
     })

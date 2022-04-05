@@ -223,10 +223,17 @@ body .nav-link:hover {
   text-align: center;
 }
 
+.data .description {
+  height: 12vh;
+}
+
 .data button {
-  background-color: #f3ab93;
-  color: red;
+  background-color: #55d686;
+  color: #fbfafa;
   padding: 5px;
+  border-radius: 10px;
+  width: 8vw;
+  text-align: center;
 }
 
 .footer {

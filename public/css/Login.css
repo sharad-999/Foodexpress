@@ -90,6 +90,7 @@ body {
   border-radius: 9px;
   background-color: #ffca40;
   border: none;
+  margin-bottom: 15px;
 }
 
 .login-btn:hover {
@@ -105,8 +106,13 @@ body {
   margin-left: 1rem;
   margin: 0 1rem;
   text-align: center;
+  text-decoration: none;
 }
 
 .add-ch-login:hover {
   color: #ea4335;
+}
+
+.add-ch-login-a {
+  text-decoration: none;
 }

@@ -71,6 +71,7 @@ if(paymentForm) {
         // Verify card
         stripe.createToken(card).then((result) => {
             formObject.stripeToken = result.token.id;
+            console.log(result);
             placeOrder(formObject);
         }).catch((err) => {
             console.log(err)

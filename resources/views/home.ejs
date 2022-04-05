@@ -92,22 +92,28 @@
   
     <p class="title">
     <h3 style="text-align: center">Our Special Items</h3>
-    </p>
-  
-    <div class="best_dishes">
+  </p>
+  <div class="best_dishes">
+  <% items.forEach(function(item){if(item.catagory==='special'){%>
       <div class="one">
-        <img src="/img/1.png" alt=""  class="pizza"/>
+        <img src="/uploads/<%=item.image%>" alt=""  class="pizza"/>
         <div class="data">
-          <p class="name">Product_Name</p>
+          <p class="name"><b><%=item.name%></b></p>
           <hr>
           <p class="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni dolorum vitae totam quibusdam natus placeat?
-            Neque, ab blanditiis
+           <%=item.description%>
           </p>
-          <button>Add to cart</button>
+          <p class="price">
+            <b>Rs.
+           <%=item.price%></b>
+          </p>
+          <button data-item="<%=JSON.stringify(item)%>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+            <span>+</span>
+            <span class="ml-4">Add</span></button>
         </div>
       </div>
-      <div class="two">
+      <%}})%>
+      <!-- <div class="two">
         <img src="/img/2.png" alt="" class="pizza" />
         <div class="data">
           <p class="name">Product_Name</p>
@@ -132,17 +138,17 @@
           <!-- <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
             <span>+</span>
             <span class="ml-4">Add</span></button> -->
-        </div>
-      </div>
+        <!-- </div>
+      </div> -->
     </div>
-  </div>
+  </div> -->
   
   
-  <div class="footer">
+  <div class="footer" id="this">
     <div class="first">
       <img src="img/Online.png" alt="">
-      <p>Welcome to Our Software. Company About here. </p>
-      <p class="this">wlocome to Our Software. Company About here.</p>
+      <p>Restaurant Management System </p>
+      <!-- <p class="this">wlocome to Our Software. Company About here.</p> -->
       <!-- <li><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
               <li><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
               <li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
@@ -157,7 +163,7 @@
         <p><strong>Thursday - Friday</strong>&nbsp;10:00 AM - 11:00 PM</p>
         <p><strong>Saturday</strong>&nbsp;12:00 PM - 6:00 PM</p>
         <p><strong>Sunday</strong>&nbsp;Off</p>
-      </div>
+      </div>  
     </div>
     <div class="third">
       <h4>Contact Us</h4>

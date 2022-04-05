@@ -6,7 +6,7 @@ function orderController () {
         store(req, res) {
             // Validate request
             const { phone, table, stripeToken, paymentType } = req.body
-            if(!phone || !table) {
+            if(!phone || !table) {s
                 return res.status(422).json({ message : 'All fields are required' });
             }
 
@@ -25,7 +25,7 @@ function orderController () {
                         stripe.charges.create({
                             amount: req.session.cart.totalPrice  * 100,
                             source: stripeToken,
-                            currency: 'inr',
+                            currency: 'usd',
                             description: `Item order: ${placedOrder._id}`
                         }).then(() => {
                             placedOrder.paymentStatus = true
@@ -42,6 +42,7 @@ function orderController () {
 
                         }).catch((err) => {
                             delete req.session.cart
+                            console.log(err);
                             return res.json({ message : 'OrderPlaced but payment failed, You can pay at delivery time' });
                         })
                     } else {
@@ -59,7 +60,12 @@ function orderController () {
                 null,
                 { sort: { 'createdAt': -1 } } )
             res.header('Cache-Control', 'no-store')
-            res.render('customer/orders', { orders: orders, moment: moment })
+            if(req.user.role==='admin'){
+                return res.redirect('/admin/orders')
+            }else{
+                res.render('customer/orders', { orders: orders, moment: moment })
+
+            }
         },
         async show(req, res) {
             const order = await Order.findById(req.params.id)
