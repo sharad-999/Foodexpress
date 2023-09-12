@@ -6,7 +6,7 @@ function orderController () {
         store(req, res) {
             // Validate request
             const { phone, table, stripeToken, paymentType } = req.body
-            if(!phone || !table) {s
+            if(!phone || !table) {
                 return res.status(422).json({ message : 'All fields are required' });
             }
 

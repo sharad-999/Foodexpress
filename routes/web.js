@@ -7,12 +7,10 @@ const orderController = require('../src/http/controllers/customer/orderControlle
 const statusController = require('../src/http/controllers/admin/statusController')
 const adminOrderController = require('../src/http/controllers/admin/orderController')
 const {guest,admin,chef,auth,menu}=require('../src/http/middleware/guest')
-const upload=require('../src/http/middleware/upload')
-const multer=require('multer')
 const path = require('path')
 const menuController = require('../src/http/controllers/menuController');
 const { group } = require('console');
-
+const upload=require('../src/http/middleware/upload')
 function initroutes(app){
    
     
@@ -37,7 +35,7 @@ function initroutes(app){
     
     app.get('/admin/addchef',admin,adminController().gaddchef);
     app.post('/admin/addchef',upload.single('file'),adminController().addchef);
-    
+    ''
     app.use(expressLayout) 
     app.get('/admin/orders', admin, adminOrderController().index)
     app.post('/admin/order/status', admin, statusController().update)

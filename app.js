@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require("express");
 const app = express();
 const mongoose=require('mongoose')
-const PORT=process.env.PORT ||3000;
+const PORT=process.env.PORT ||4000;
 const path=require('path')
 const ejs=require('ejs')
 const expressLayout=require('express-ejs-layouts');
@@ -68,7 +68,7 @@ app.use((req,res,next)=>{
     next()
 }) 
 // app.use(expressLayout) 
-app.set('views', path.join(__dirname, '/resources/views'))
+app.set('views', path.join(__dirname, 'resources/views'))
 app.set('view engine', 'ejs')
 
 require('./routes/web')(app)
